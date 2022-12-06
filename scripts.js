@@ -21,7 +21,6 @@ const fetchTodos = () => {
 const logTodos = () => {
     console.log(arrayOfTodos)
 }
-// NOT COMPLETE
 const populateTodos = () => {
     for (i=0; i<arrayOfTodos.length; i++){
         const list = document.getElementById("todo-list")
@@ -32,3 +31,75 @@ const populateTodos = () => {
     }
 }
 
+const filterTodos = () => {
+    reset()
+    const input = document.getElementById("userID").value
+    const filterarray = arrayOfTodos.filter(result=>result.userId==input) 
+    console.log (filterarray)
+    for (i=0; i<filterarray.length; i++){
+        const list = document.getElementById("todo-list")
+        const li = document.createElement("li")
+        const text = document.createTextNode(filterarray[i].title)
+        li.appendChild(text)
+        list.appendChild(li)
+    }
+    // filteredTodos = filterarray
+}
+
+    const removeTodos = () => {
+        reset()
+        const input = document.getElementById("userID").value
+        const filterarray = arrayOfTodos.filter(result=>result.userId!=input) 
+        console.log (filterarray)
+        for (i=0; i<filterarray.length; i++){
+            const list = document.getElementById("todo-list")
+            const li = document.createElement("li")
+            const text = document.createTextNode(filterarray[i].title)
+            li.appendChild(text)
+            list.appendChild(li)
+        }
+    } 
+
+    completeTodos = () => {
+        reset()
+        const filterarray = arrayOfTodos.filter(result=>result.completed) 
+        console.log (filterarray)
+        for (i=0; i<filterarray.length; i++){
+            const list = document.getElementById("todo-list")
+            const li = document.createElement("li")
+            const text = document.createTextNode(filterarray[i].title)
+            li.appendChild(text)
+            list.appendChild(li)
+        }
+    }
+
+    incompleteTodos = () => {
+        reset()
+        const filterarray = arrayOfTodos.filter(result=>!result.completed) 
+        console.log (filterarray)
+        for (i=0; i<filterarray.length; i++){
+            const list = document.getElementById("todo-list")
+            const li = document.createElement("li")
+            const text = document.createTextNode(filterarray[i].title)
+            li.appendChild(text)
+            list.appendChild(li)
+        }
+    }
+
+
+const reset = () => {
+    const list = document.getElementById("todo-list")
+    list.innerHTML = ""
+}
+
+// const filteredTodos = []
+
+
+// Added Content
+// const form = document.querySelector ("container")
+// form.addEventListener("submit", e -> {
+// e.preventDefault();
+// onlanguagechange.innerHTML -""
+// })
+
+// const result = words.filter((word) => word.length <10);
