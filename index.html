@@ -7,9 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="container">
+        <input for="userID" id="userID" min="1" max="10">User-id</input>
+    </form>
+    
     <button onclick="fetchTodos()">Fetch Todos</button>
     <button onclick="logTodos()">Log Todos</button>
     <button onclick="populateTodos()">Populate Todos</button>
+    <button onclick="filterTodos()">Filter Todos</button>
+    <button onclick="removeTodos()">Remove Todos</button>
+    <button onclick="completeTodos()">Completed Todos</button>
+    <button onclick="incompleteTodos()">incompleted Todos</button>
     <ol id="todo-list">
     <!-- LIs will go here -->
 
